@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <a href={{Route('todos')}}>Todo List</a>
                 </div>
 
                 <div class="links">
