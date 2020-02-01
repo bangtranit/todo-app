@@ -13,8 +13,9 @@
                 <div class="card-body">
                     {{$todo->description}}
                 </div>
-                <a class="btn btn-info" href={{Route('todos.edit', $todo->id)}}>Edit</a>
             </div>
+            <a class="btn btn-info my-2" href={{Route('todos.edit', $todo->id)}}>Edit</a>
+            <a class="btn btn-danger my-2" href={{Route('todos.delete', $todo->id)}}>Delete</a>
         </div>
     </div>
 @endsection

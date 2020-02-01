@@ -31,7 +31,8 @@ class TodoController extends Controller
     {
         $validated = $request->validated();
         $todo = Todo::create($request->all());
-        return $this->index();
+        session()->flash('success', 'Todo created successfully');
+        return redirect()->route('todos.index');
     }
 
     public function edit(Todo $todo)
@@ -43,7 +44,14 @@ class TodoController extends Controller
     {
         $validated = $request->validated();
         $todo->update($request->all());
-        return $this->index();
+        session()->flash('success', 'Todo updated successfully');
+        return redirect()->route('todos.index');
+    }
+
+    public function delete(Todo $todo)
+    {
+        $todo->delete();
+        return redirect()->route('todos.index');
     }
 
 }
