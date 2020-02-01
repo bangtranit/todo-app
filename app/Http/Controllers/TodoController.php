@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Todo;
 use Illuminate\Http\Request;
 use App\Http\Requests\CreateTodo;
+use App\Http\Requests\UpdateTodo;
 
 class TodoController extends Controller
 {
@@ -30,6 +31,18 @@ class TodoController extends Controller
     {
         $validated = $request->validated();
         $todo = Todo::create($request->all());
+        return $this->index();
+    }
+
+    public function edit(Todo $todo)
+    {
+        return view('todos.edit', compact('todo'));
+    }
+
+    public function update(UpdateTodo $request, Todo $todo)
+    {
+        $validated = $request->validated();
+        $todo->update($request->all());
         return $this->index();
     }
 

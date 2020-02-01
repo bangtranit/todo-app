@@ -13,6 +13,7 @@
                 <div class="card-body">
                     {{$todo->description}}
                 </div>
+                <a class="btn btn-info" href={{Route('todos.edit', $todo->id)}}>Edit</a>
             </div>
         </div>
     </div>
