@@ -24,8 +24,8 @@ class CreateTodo extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|min:10',
+            'description' => 'required|min:10|max:1000',
         ];
     }
 
@@ -33,6 +33,9 @@ class CreateTodo extends FormRequest
         return [
             'name.required' => 'nhap name vao thim',
             'description.required' => 'nhap description vao thim',
+            'name.min' => 'nhap name lon hon 10 ky tu di thim',
+            'description.min' => 'nhap description lon hon 10 ky tu di thim',
+            'description.max' => 'nhap description be hon 1000 ky tu di thim',
         ];
     }
 }

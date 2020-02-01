@@ -6,6 +6,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form action={{Route('todos.store')}} method="POST">
                     @csrf
                     <div class="card-header">
