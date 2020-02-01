@@ -52,12 +52,14 @@ class TodoController extends Controller
     {
         $todo->completed = Todo::HAS_COMPLETED;
         $todo->save();
+        session()->flash('success', 'Complete todo successfully');
         return redirect()->route('todos.index');
     }
 
     public function delete(Todo $todo)
     {
         $todo->delete();
+        session()->flash('success', 'Delete todo successfully');
         return redirect()->route('todos.index');
     }
 

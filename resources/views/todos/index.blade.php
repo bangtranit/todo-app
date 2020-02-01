@@ -15,7 +15,7 @@
                         @foreach($todos as $todo)
                             <li class="list-group-item">
                                 {{$todo->name}}
-                                @if($todo->completed === 0)
+                                @if(!$todo->completed)
                                     <a href={{Route('todos.complete', $todo->id)}}
                                         class="btn btn-warning btn-sm float-right">
                                     Complete</a>
