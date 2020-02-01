@@ -5,3 +5,4 @@ Route::get('/', function () {
 });
 
 Route::get('todos', 'TodoController@index')->name('todos');
+Route::get('todos/{todo}', 'TodoController@show')->name('todos.show');

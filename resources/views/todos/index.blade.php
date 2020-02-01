@@ -23,14 +23,16 @@
                             @foreach($todos as $todo)
                                 <li class="list-group-item">
                                     {{$todo->name}}
-                                    <button class="btn btn-primary btn-sm float-right">View</button>
+                                    <a href={{Route('todos.show', $todo->id)}} class="btn btn-info btn-sm float-right">
+                                    View</a>
+
+{{--                                    <button class="btn btn-primary btn-sm float-right">View</button>--}}
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
-
         </div>
 
 

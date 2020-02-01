@@ -14,4 +14,9 @@ class TodoController extends Controller
         $todos = Todo::all();
         return view('todos.index', compact('todos'));
     }
+
+    public function show(Todo $todo)
+    {
+        return view('todos.show', compact('todo'));
+    }
 }
