@@ -15,7 +15,13 @@
                         @foreach($todos as $todo)
                             <li class="list-group-item">
                                 {{$todo->name}}
-                                <a href={{Route('todos.show', $todo->id)}} class="btn btn-info btn-sm float-right">
+                                @if($todo->completed === 0)
+                                    <a href={{Route('todos.complete', $todo->id)}}
+                                        class="btn btn-warning btn-sm float-right">
+                                    Complete</a>
+                                @endif
+                                <a href={{Route('todos.show', $todo->id)}}
+                                        class="btn btn-info btn-sm float-right mr-2">
                                 View</a>
                             </li>
                         @endforeach

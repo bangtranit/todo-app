@@ -48,6 +48,13 @@ class TodoController extends Controller
         return redirect()->route('todos.index');
     }
 
+    public function complete(Todo $todo)
+    {
+        $todo->completed = Todo::HAS_COMPLETED;
+        $todo->save();
+        return redirect()->route('todos.index');
+    }
+
     public function delete(Todo $todo)
     {
         $todo->delete();
